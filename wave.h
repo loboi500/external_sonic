@@ -1,16 +1,3 @@
-/* Sonic library
-   Copyright 2010
-   Bill Cox
-   This file is part of the Sonic Library.
-
-   This file is licensed under the Apache 2.0 license. */
-
-/* Support for reading and writing wave files. */
-
-typedef struct waveFileStruct *waveFile;
-
-waveFile openInputWaveFile(char *fileName, int *sampleRate, int *numChannels);
-waveFile openOutputWaveFile(char *fileName, int sampleRate, int numChannels);
-int closeWaveFile(waveFile file);
-int readFromWaveFile(waveFile file, short *buffer, int maxSamples);
-int writeToWaveFile(waveFile file, short *buffer, int numSamples);
+version https://git-lfs.github.com/spec/v1
+oid sha256:d9bf5eda57032803ad66afad56996ed562e39aa00a0bebfea9b442d559507013
+size 569

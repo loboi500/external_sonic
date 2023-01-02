@@ -1,22 +1,3 @@
-#!/bin/bash
-
-# Build an original tar-ball for a debian package free of a debian directory and
-# .git.
-
-version=`head -1 debian/changelog | sed 's/.*(//
-     s/-.*//'`
-sed -i "s/LIB_TAG=.*/LIB_TAG=$version/" Makefile
-if [ "`basename $PWD`" != "sonic-$version" ]; then
-    echo "Directory name should be sonic-$version"
-    exit 1
-fi
-make clean
-make -f debian/rules clean
-echo "sonic_${version} (git: `git log -1 --oneline | sed 's/ .*//'`)" > version
-git2cl > ChangeLog
-cd ..
-if ! tar -cvzf sonic_$version.orig.tar.gz --exclude-vcs --exclude=debian sonic-$version; then 
-    echo "Could not create sonic_$version.orig.tar.gz"
-    exit 1
-fi
-echo "Successfully created sonic_$version.orig.tar.gz"
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e5681bebab9679e000f874cb203ee216f4b9438f8c8c4a684f3e866f7f6c5ba
+size 694
